@@ -1,0 +1,12 @@
+.classpath
+.settings/*
+.project
+target-eclipse/
+target/
+*.log
+target-eclipse/*
+target/*
+*.iml
+.idea/*
+*.DS_Store
+.settings/*
