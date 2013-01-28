@@ -1,0 +1,27 @@
+http://json-generator.appspot.com/
+
+[
+    '{{repeat(50)}}',
+    {
+        id: '{{index}}',
+        profileThumbURL: 'http://placehold.it/50x50',
+        age: '{{numeric(18,35)}}',
+        firstName: '{{firstName}}',
+        lastName:  '{{lastName}}',
+        gender: function(idx) {
+            return this.bool() ? 'male' : 'female';
+        },
+        email: '{{email}}',
+        description: '{{lorem(25,75)}}',
+        photos: [
+            '{{repeat(5)}}',
+            {
+                title: '{{lorem(4)}}',
+                description: '{{lorem(10, 25)}}',
+                producer: '{{firstName}} {{lastName}}',
+                URL : 'http://placehold.it/400x300',
+                photoThumbURL: 'http://placehold.it/160x120'
+            }
+        ]
+    }
+]

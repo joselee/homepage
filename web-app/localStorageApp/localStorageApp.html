@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jose's Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Styles. -->
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    
+    <!-- RequireJS entry point & config -->
+    <script src="js/libs/require.js" data-main="js/application"></script>
+    <script type="text/javascript" src="js/require.config.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Welcome!</h1>
+      <br/>
+      <p>This site is running on my Odroid-X</p>
+      <p>The webserver is running in Ubuntu, and Ubuntu is running in Android.. INCEPTION!!</p>
+      <br/>
+      <p>Below, you can see a simple Backbone application using Local Storage. You can save links and give them names.</p>
+      <h4>This example uses the <a target="new" href="http://documentcloud.github.com/backbone/docs/backbone-localstorage.html">backbone-localstorage.js</a> library.</h4>
+
+      <div class="changes">
+        <h5>Changes to come:</h5>
+        <ul>
+          <li class="complete">Integrate Require.js</li>
+          <li>Convert to Marionette.js</li>
+          <li>Ability to rank links</li>
+          <li>Move links up/down depending on rank</li>
+          <li>Possibly remote storage</li>
+        </ul>
+      </div>
+
+      <div id="app">
+    Description: <input id="desc" name="desc" value="" /> Link: <input id="link" name="link" value="http://" /><button id='btnSave' class='btn'>save</button><br />
+        <div id="links"></div>
+      </div>
+
+      <!-- Link Template -->
+      <script type="text/template" id="link-template">
+        <div id='<%= cid %>' class='link'>
+          <a target='new' class='link <%= cid %>' href="<%= url %>"><%= desc %></a>
+          <button id='delete' class='btn btn-danger <%= cid %>'>DELETE THIS LINK</button>
+        </div>
+      </script>
+
+    </div>
+  </body>
+</html>
