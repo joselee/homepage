@@ -6,7 +6,7 @@ define(
     function PersonsCollection(Backbone, PersonModel){
         var PersonsCollection = Backbone.Collection.extend({
             model: PersonModel,
-            url: "feeds/people.json"
+            url: "person/getAllPersons"
         });
 
         personsCollection = new PersonsCollection();
