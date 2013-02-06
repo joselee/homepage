@@ -13,7 +13,6 @@ requirejs.config({
 		i18nprecompile                  : "libs/i18nprecompile",
 		"backbone.marionette.handlebars": "libs/backbone.marionette.handlebars",
 		"juissi"						: "libs/juissi.swipe",
-        "bootstrap"                     : "libs/bootstrap.min",
 		"vent"							: "vent"
     },
     map: {
