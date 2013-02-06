@@ -1,0 +1,2 @@
+#mysqldump -u root -proot --skip-extended-insert homepagedb > homepagedb.sql
+#mysql -u root -proot homepagedb < homepagedb.sql
