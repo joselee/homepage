@@ -24,6 +24,7 @@ define(
 		
         var MainLayout = Marionette.Layout.extend({
             template:MainLayoutTemplate,
+            className: "mainLayout",
             regions:{
                 headerRegion:"#headerRegion",
                 mainContentRegion:"#mainContentRegion",
@@ -34,7 +35,7 @@ define(
 			},
             onShow:function () {
                 this.headerRegion.show(new HeaderView);
-                this.bottomAdRegion.show(new BottomAdView);
+//                this.bottomAdRegion.show(new BottomAdView);
             },
 			showHome: function(){
 				this.mainContentRegion.show(new PersonsCollectionView);

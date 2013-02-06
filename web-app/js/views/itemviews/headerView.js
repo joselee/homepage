@@ -5,7 +5,7 @@ define(
 	],
 	function HeaderView(Marionette, headerViewTemplate){
 		var HeaderView = Marionette.ItemView.extend({
-            className: "headerViewItemView",
+            className: "headerView",
 			template: headerViewTemplate
 		});
 

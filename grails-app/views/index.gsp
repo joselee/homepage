@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width">
 
         <!-- Styles -->
+        <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/styles.css">
 
         <!-- Require entry point -->
