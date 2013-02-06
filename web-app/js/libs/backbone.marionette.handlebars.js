@@ -1,6 +1,6 @@
-/*! Backbone.Marionette.Handlebars - v0.1.0
+/*! Backbone.Marionette.Handlebars - v0.2.0
 ------------------------------
-Build @ 2012-07-10
+Build @ 2012-07-24
 Documentation and Full License Available at:
 http://asciidisco.github.com/Backbone.Marionette.Handlebars/index.html
 git://github.com/asciidisco/Backbone.Marionette.Handlebars.git
@@ -23,4 +23,38 @@ IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
 DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 IN THE SOFTWARE.*/
-(function(a,b,c,d,e,f,g){"use strict",typeof d=="object"?e.exports=f(c("underscore"),c("backbone"),c("backbone.marionette")):typeof b=="function"&&b.amd?b(["underscore","backbone","backbone.marionette"],function(b,c){return b=b===g?a._:b,c=c===g?a.Backbone:c,a.returnExportsGlobal=f(b,c,a)}):a.returnExportsGlobal=f(a._,a.Backbone)})(this,this.define,this.require,this.exports,this.module,function(a,b,c,d){"use strict";var e;return e=b.Marionette.Renderer.render,b.Marionette.Renderer.render=function(b,c){return a.isObject(b)&&b.type==="handlebars"?b.template(c,b.options):e(b,c)},b.Marionette});
+
+(function (root, define, require, exports, module, factory, undef) {
+    'use strict';
+    if (typeof exports === 'object') {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like enviroments that support module.exports,
+        // like Node.
+        module.exports = factory(require('underscore'), require('backbone'), require('backbone.marionette'));
+    } else if (typeof require === 'function' && typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        require(['underscore', 'backbone', 'backbone.marionette'], function (_, Backbone) {
+            // Check if we use the AMD branch of Backbone
+            _ = _ === undef ? root._ : _;
+            Backbone = Backbone === undef ? root.Backbone : Backbone;
+            return (root.returnExportsGlobal = factory(_, Backbone, root));
+        });
+    } else {
+        // Browser globals
+        root.returnExportsGlobal = factory(root._, root.Backbone);
+    }
+}(this, this.define, this.require, this.exports, this.module, function (_, Backbone, root, undef) {
+    'use strict';
+    var oldRender;
+
+    oldRender = Backbone.Marionette.Renderer.render;
+    Backbone.Marionette.Renderer.render = function (template, data) {
+        if (_.isObject(template) && template.type === 'handlebars') {
+            return template.template(_.extend(data, template.data), template.options);
+        }
+
+        return oldRender(template, data);
+    };
+
+    return Backbone.Marionette;
+}));

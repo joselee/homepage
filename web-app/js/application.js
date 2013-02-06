@@ -1,10 +1,11 @@
 define(
     [
         "backbone.marionette",
+		"router",
         "views/layouts/mainLayout",
         "bootstrap"
     ],
-    function Application(Marionette, mainLayout) {
+    function Application(Marionette, Router, mainLayout) {
 
         // Instantiate & Start the app!
         var Application = new Marionette.Application();
@@ -18,6 +19,7 @@ define(
         // Show the main layout
         Application.addInitializer(function(){
             Application.bodyRegion.show(mainLayout);
+			Router.start();
         });
     }
 );

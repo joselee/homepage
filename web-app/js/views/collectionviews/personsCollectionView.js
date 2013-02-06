@@ -12,7 +12,6 @@ define(
             collection: personsCollection
         });
 
-        var personsCollectionView = new PersonsCollectionView();
-        return personsCollectionView;
+        return PersonsCollectionView;
     }
 );

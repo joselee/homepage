@@ -1,17 +1,20 @@
 
 requirejs.config({
     paths: {
-		json2                           : "libs/json2",
-        jquery                          : "libs/jquery-1.9.0.min",
+		jquery                          : "libs/jquery-1.7.2.min",
+		backbone                        : "libs/backbone",
+		"backbone.eventbinder"          : "libs/backbone.eventbinder",
+        "backbone.wreqr"                : "libs/backbone.wreqr",
+		"backbone.marionette"           : "libs/backbone.marionette",
 		underscore                      : "libs/underscore.min",
-        backbone                        : "libs/backbone.min",
-		"backbone.marionette"           : "libs/backbone.marionette.min",
-		"Handlebars"					: "libs/handlebars",
+		handlebars  					: "libs/handlebars-1.0.0.beta.6",
 		hbs								: "libs/hbs",
+		json2                           : "libs/json2",
 		i18nprecompile                  : "libs/i18nprecompile",
 		"backbone.marionette.handlebars": "libs/backbone.marionette.handlebars",
 		"juissi"						: "libs/juissi.swipe",
-        "bootstrap"                     : "libs/bootstrap.min"
+        "bootstrap"                     : "libs/bootstrap.min",
+		"vent"							: "vent"
     },
     map: {
         hbs: {
@@ -35,7 +38,7 @@ requirejs.config({
         	deps: ["underscore", "jquery", "backbone"],
         	exports: "Marionette"
         },
-        "Handlebars": {
+        handlebars: {
         	exports: "Handlebars"
         },
         "juissi": {
