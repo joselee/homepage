@@ -33,7 +33,7 @@ CREATE TABLE `person` (
   `lastname` varchar(255) NOT NULL,
   `profile_thumburl` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -50,6 +50,7 @@ INSERT INTO `person` VALUES (5,0,22,'friend','jesper@email.com','Jesper','M','Ru
 INSERT INTO `person` VALUES (6,0,26,'friend','allan@email.com','Allan','M','Arriaga','http://placehold.it/50x50');
 INSERT INTO `person` VALUES (7,0,29,'friend','marek@email.com','Marek','M','Miettinen','http://placehold.it/50x50');
 INSERT INTO `person` VALUES (8,0,30,'friend','pyry@email.com','Pyry','M','Ahlfors','http://placehold.it/50x50');
+INSERT INTO `person` VALUES (9,0,26,'friend','mary@email.com','Mary','F','Nyamor','http://placehold.it/50x50');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -62,4 +63,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-02-06 11:00:43
+-- Dump completed on 2013-02-06 11:12:59
