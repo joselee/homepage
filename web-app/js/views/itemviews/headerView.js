@@ -8,8 +8,7 @@ define(
             className: "headerViewItemView",
 			template: headerViewTemplate
 		});
-		
-		var headerView = new HeaderView();
-        return headerView;
+
+        return HeaderView;
 	}
 );

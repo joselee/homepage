@@ -2,16 +2,17 @@ define(
     [
         "backbone.marionette",
         "hbs!templates/profileLayoutTemplate",
-		"vent"
+        "collections/personsCollection"
     ],
     function MainLayout(
 		Marionette,
 		ProfileLayoutTemplate,
-		Vent
+        personsCollection
 		) {
 		"use strict";
 		
         var ProfileLayout = Marionette.Layout.extend({
+            model: null,
             template:ProfileLayoutTemplate,
             regions:{
                 photoRegion: ".photoRegion",
@@ -19,10 +20,11 @@ define(
             },
 			initialize: function(){
 				_.bindAll(this);
+                this.model = personsCollection.getPersonById(this.options.personId);
 			},
             onShow:function () {
-                this.photoRegion.show();
-                this.infoRegion.show();
+                //this.photoRegion.show();
+                //this.infoRegion.show();
             }
         });
 		

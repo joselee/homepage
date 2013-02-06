@@ -9,7 +9,6 @@ define(
             template: bottomAdViewTemplate
         });
 
-        var bottomAdView = new BottomAdView();
-        return bottomAdView;
+        return BottomAdView;
     }
 );

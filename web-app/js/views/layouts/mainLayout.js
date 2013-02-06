@@ -14,10 +14,10 @@ define(
     function MainLayout(
 		Marionette,
 		MainLayoutTemplate,
-		headerView,
+		HeaderView,
 		PersonsCollectionView,
-        profileLayout,
-		bottomAdView,
+        ProfileLayout,
+		BottomAdView,
 		Vent
 		) {
 		"use strict";
@@ -33,14 +33,15 @@ define(
 				_.bindAll(this);
 			},
             onShow:function () {
-                this.headerRegion.show(headerView);
-                this.bottomAdRegion.show(bottomAdView);
+                this.headerRegion.show(new HeaderView);
+                this.bottomAdRegion.show(new BottomAdView);
             },
 			showHome: function(){
 				this.mainContentRegion.show(new PersonsCollectionView);
 			},
-			showProfile: function(profileId){
-                console.info("mainLayout, " + profileId);
+			showProfile: function(personId){
+                var profileLayout = new ProfileLayout({personId:personId});
+                this.mainContentRegion.show(profileLayout);
 			}
         });
 

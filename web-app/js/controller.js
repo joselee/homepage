@@ -12,7 +12,7 @@ define(
                     Vent.trigger("show:home");
                 },
                 profile: function(profileId) {
-                    Vent.trigger("show:profile", profileId);
+                    Vent.trigger("show:profile", Number(profileId));
 				}
             });
         _.extend(controller, Backbone.Events);
