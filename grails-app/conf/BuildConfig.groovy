@@ -61,3 +61,20 @@ grails.project.dependency.resolution = {
         compile ':cache:1.0.1'
     }
 }
+
+grails.tomcat.jvmArgs = [
+        "-server",
+        "-XX:MaxPermSize=256m",
+        "-XX:MaxNewSize=256m",
+        "-XX:NewSize=256m",
+        "-Xms256m",
+        "-Xmx256m",
+        "-XX:SurvivorRatio=128",
+        "-XX:MaxTenuringThreshold=0",
+        "-XX:+UseTLAB",
+        "-XX:+UseConcMarkSweepGC",
+        "-XX:+CMSClassUnloadingEnabled",
+        "-XX:+CMSIncrementalMode",
+        "-XX:-UseGCOverheadLimit",
+        "-XX:+ExplicitGCInvokesConcurrent"
+]

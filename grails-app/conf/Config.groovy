@@ -93,6 +93,6 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-//tomcat.deploy.username = "root"
-//tomcat.deploy.password = "root"
-//tomcat.deploy.url= "http://localhost:8080/manager"
+tomcat.deploy.username = "root"
+tomcat.deploy.password = "root"
+tomcat.deploy.url= "http://localhost:8080/manager"
