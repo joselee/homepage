@@ -15,13 +15,13 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost/homepageDB?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/homepagedb?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://localhost/homepageDB?useUnicode=yes&characterEncoding=UTF-8"
+            url = "jdbc:mysql://localhost/homepagedb?useUnicode=yes&characterEncoding=UTF-8"
         }
     }
     production {
