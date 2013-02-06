@@ -95,4 +95,4 @@ log4j = {
 
 tomcat.deploy.username = "root"
 tomcat.deploy.password = "root"
-tomcat.deploy.url= "http://localhost:8080/manager"
+tomcat.deploy.url= "http://localhost:8080/manager/text"
