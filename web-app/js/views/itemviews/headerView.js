@@ -6,7 +6,13 @@ define(
 	function HeaderView(Marionette, headerViewTemplate){
 		var HeaderView = Marionette.ItemView.extend({
             className: "headerView",
-			template: headerViewTemplate
+			template: headerViewTemplate,
+			events: {
+				"click .mobileMenuButton": "toggleMobileMenu"
+			},
+			toggleMobileMenu: function(){
+				$(".headerLinksContainer", this.$el).slideToggle("150");
+			}
 		});
 
         return HeaderView;
