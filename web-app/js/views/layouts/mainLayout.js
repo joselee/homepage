@@ -7,7 +7,7 @@ define(
         "hbs!templates/mainLayoutTemplate",
         "views/itemviews/headerView",
         "views/collectionviews/personsCollectionView",
-        "views/layouts/profileLayout",
+        "views/collectionviews/profileCollectionView",
         "views/itemviews/bottomAdView",
 		"vent"
     ],
@@ -16,7 +16,7 @@ define(
 		MainLayoutTemplate,
 		HeaderView,
 		PersonsCollectionView,
-        ProfileLayout,
+        ProfileCollectionView,
 		BottomAdView,
 		Vent
 		) {
@@ -40,15 +40,16 @@ define(
 			showHome: function(){
 				this.mainContentRegion.show(new PersonsCollectionView);
 			},
-			showProfile: function(personId){
-                var profileLayout = new ProfileLayout({personId:personId});
-                this.mainContentRegion.show(profileLayout);
+			showProfileCarousel: function(personId){
+                var profileCollectionView = new ProfileCollectionView({personId:personId});
+                this.mainContentRegion.show(profileCollectionView);
+                $(".profileCollectionView").page();
 			}
         });
 
         var mainLayout = new MainLayout();
 		mainLayout.bindTo(Vent, "show:home", mainLayout.showHome);
-		mainLayout.bindTo(Vent, "show:profile", mainLayout.showProfile);
+		mainLayout.bindTo(Vent, "show:profile", mainLayout.showProfileCarousel);
 		
         return mainLayout;
     }
