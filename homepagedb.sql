@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.29, for debian-linux-gnu (armv7l)
+-- MySQL dump 10.13  Distrib 5.5.29, for osx10.6 (i386)
 --
 -- Host: localhost    Database: homepagedb
 -- ------------------------------------------------------
--- Server version	5.5.29-0ubuntu0.12.04.1
+-- Server version	5.5.29
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -33,7 +33,7 @@ CREATE TABLE `person` (
   `lastname` varchar(255) NOT NULL,
   `profile_thumburl` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -54,6 +54,7 @@ INSERT INTO `person` VALUES (9,0,26,'friend','mary@email.com','Mary','F','Nyamor
 INSERT INTO `person` VALUES (10,0,20,'sister','piips@email.com','Justina','F','Rautio','http://placehold.it/50x50');
 INSERT INTO `person` VALUES (11,0,27,'sister','judith@email.com','Judith','F','McKenzie','http://placehold.it/50x50');
 INSERT INTO `person` VALUES (12,0,27,'friend','ivan@email.com','Ivan','M','Orlov','http://placehold.it/50x50');
+INSERT INTO `person` VALUES (13,0,3,'dog','leo@email.com','Leo','M','Lee','http://placehold.it/50x50');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -66,4 +67,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-03-02 17:43:04
+-- Dump completed on 2013-03-02 19:57:38
