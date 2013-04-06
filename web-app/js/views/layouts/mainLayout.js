@@ -40,10 +40,9 @@ define(
 			showHome: function(){
 				this.mainContentRegion.show(new PersonsCollectionView);
 			},
-			showProfileCarousel: function(personId){
-                var profileCollectionView = new ProfileCollectionView({personId:personId});
+			showProfileCarousel: function(profileId){
+                var profileCollectionView = new ProfileCollectionView({profileId:profileId});
                 this.mainContentRegion.show(profileCollectionView);
-                $(".profileCollectionView").page();
 			}
         });
 

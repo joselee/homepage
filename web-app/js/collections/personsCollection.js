@@ -8,11 +8,12 @@ define(
             model: PersonModel,
             url: "person/getAllPersons",
 
-            getPersonById: function(personId){
+            getPersonIndex: function(personId){
                 var person = this.find(function(model){
                     return model.get("id") === personId;
                 });
-                return person;
+
+                return this.models.indexOf(person);
             }
         });
 
