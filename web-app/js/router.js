@@ -10,7 +10,8 @@ define(
             controller: Controller,
             appRoutes: {
                 "": "home",
-				"profile/:personid" : "profile"
+				"profile/:personid" : "profile",
+                "chat": "chat"
             },
             start: function() {
                 Backbone.history.start();

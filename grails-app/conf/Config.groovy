@@ -74,4 +74,3 @@ log4j = {
 // defines root url for app
 grails.app.context = "/"
 
-tomcat.nio=true

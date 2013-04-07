@@ -13,7 +13,8 @@ requirejs.config({
 		i18nprecompile                  : "libs/i18nprecompile",
 		"backbone.marionette.handlebars": "libs/backbone.marionette.handlebars",
 		"juissi"						: "libs/juissi.swipe",
-		"vent"							: "vent"
+		"vent"							: "vent",
+        "atmosphere"                    : "libs/jquery.atmosphere"
     },
     map: {
         hbs: {
@@ -43,7 +44,11 @@ requirejs.config({
         "juissi": {
         	deps: ["jquery"],
         	exports: "Conmio"
+        },
+        atmosphere: {
+            deps: ["jquery"],
+            exports: 'atmosphere'
         }
     },
-    deps: ["backbone.marionette.handlebars", "juissi"]
+    deps: ["backbone.marionette.handlebars", "juissi", "atmosphere"]
 });

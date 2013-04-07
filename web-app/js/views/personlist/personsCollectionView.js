@@ -1,7 +1,7 @@
 define(
     [
         "backbone.marionette",
-        "views/itemviews/personItemView",
+        "views/personlist/personItemView",
         "collections/personsCollection"
     ],
     function PersonsCollectionView(Marionette, PersonItemView, personsCollection){

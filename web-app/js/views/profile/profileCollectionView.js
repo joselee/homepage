@@ -1,7 +1,7 @@
 define(
     [
         "backbone.marionette",
-        "views/itemviews/profileItemView",
+        "views/profile/profileItemView",
         "collections/personsCollection",
         "router"
     ],
@@ -26,7 +26,6 @@ define(
             updateURL: function(){
                 var currentModel = personsCollection.at(this.currentPage);
                 Router.navigate("#profile/" + currentModel.get("id"));
-                console.info(currentModel);
             },
             scrollToProfile: function(profileId){
                 var index = personsCollection.getPersonIndex(profileId);

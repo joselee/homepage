@@ -13,7 +13,10 @@ define(
                 },
                 profile: function(profileId) {
                     Vent.trigger("show:profile", Number(profileId));
-				}
+				},
+                chat: function(){
+                    Vent.trigger("show:chat");
+                }
             });
         _.extend(controller, Backbone.Events);
 

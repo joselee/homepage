@@ -188,3 +188,10 @@
         margin: 0 0 5px 0;
     }
 }
+
+
+#testDiv {
+    width:100px;
+    border:solid 1px black;
+    display:block;
+}

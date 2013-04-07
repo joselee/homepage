@@ -5,10 +5,10 @@ define(
     [
         "backbone.marionette",
         "hbs!templates/mainLayoutTemplate",
-        "views/itemviews/headerView",
-        "views/collectionviews/personsCollectionView",
-        "views/collectionviews/profileCollectionView",
-        "views/itemviews/bottomAdView",
+        "views/header/headerView",
+        "views/personlist/personsCollectionView",
+        "views/profile/profileCollectionView",
+        "views/chat/chatView",
 		"vent"
     ],
     function MainLayout(
@@ -17,7 +17,7 @@ define(
 		HeaderView,
 		PersonsCollectionView,
         ProfileCollectionView,
-		BottomAdView,
+        ChatView,
 		Vent
 		) {
 		"use strict";
@@ -27,15 +27,13 @@ define(
             className: "mainLayout",
             regions:{
                 headerRegion:"#headerRegion",
-                mainContentRegion:"#mainContentRegion",
-                bottomAdRegion:"#bottomAdRegion"
+                mainContentRegion:"#mainContentRegion"
             },
 			initialize: function(){
 				_.bindAll(this);
 			},
             onShow:function () {
                 this.headerRegion.show(new HeaderView);
-//                this.bottomAdRegion.show(new BottomAdView);
             },
 			showHome: function(){
 				this.mainContentRegion.show(new PersonsCollectionView);
@@ -43,13 +41,17 @@ define(
 			showProfileCarousel: function(profileId){
                 var profileCollectionView = new ProfileCollectionView({profileId:profileId});
                 this.mainContentRegion.show(profileCollectionView);
-			}
+			},
+            showChat: function(){
+                this.mainContentRegion.show(new ChatView);
+            }
         });
 
         var mainLayout = new MainLayout();
 		mainLayout.bindTo(Vent, "show:home", mainLayout.showHome);
 		mainLayout.bindTo(Vent, "show:profile", mainLayout.showProfileCarousel);
-		
+		mainLayout.bindTo(Vent, "show:chat", mainLayout.showChat);
+
         return mainLayout;
     }
 );
