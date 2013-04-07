@@ -36,9 +36,14 @@ define(
 
                 var subSocket = socket.subscribe(request);
 
-                $("#btnSend", this.$el).on("click", function(){
-                    var data = JSON.stringify({ author: "Jose Lee", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus orci, dignissim sed sodales in, rhoncus nec sem. Sed et velit lectus, id dignissim ante." });
-                    subSocket.push(data);
+                $("#tbChatInput", this.$el).on("keyup", function(e){
+                    if(e.keyCode === 13){
+                        var author = "Jose Lee";
+                        var message = $(this).val();
+                        var data = JSON.stringify({ author: author, message: message });
+                        subSocket.push(data);
+                        $(this).val("");
+                    }
                 });
             },
             appendMessage: function(message){
