@@ -1,4 +1,4 @@
-package chat
+package homepage
 
 import org.atmosphere.cpr.*
 import org.atmosphere.cpr.AtmosphereResource.TRANSPORT
