@@ -14,7 +14,8 @@ requirejs.config({
 		"backbone.marionette.handlebars": "libs/backbone.marionette.handlebars",
 		"juissi"						: "libs/juissi.swipe",
 		"vent"							: "vent",
-        "atmosphere"                    : "libs/jquery.atmosphere"
+        "atmosphere"                    : "libs/jquery.atmosphere",
+        "moment"                        : "libs/moment.min"
     },
     map: {
         hbs: {
@@ -47,8 +48,11 @@ requirejs.config({
         },
         atmosphere: {
             deps: ["jquery"],
-            exports: 'atmosphere'
+            exports: "atmosphere"
+        },
+        moment: {
+            exports: "moment"
         }
     },
-    deps: ["backbone.marionette.handlebars", "juissi", "atmosphere"]
+    deps: ["backbone.marionette.handlebars", "juissi", "atmosphere", "moment"]
 });

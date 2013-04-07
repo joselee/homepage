@@ -74,7 +74,9 @@
     -webkit-border-radius: 2px;
 }
 
-/* Main Content Region Styles*/
+/* Header styles end */
+
+/* Main Content Region Styles */
 #mainContentRegion {
     display: block;
     position: relative;
@@ -88,6 +90,9 @@
     overflow: hidden;
 }
 
+/* Main Content Region Styles end*/
+
+/* Person list styles */
 .personItemView {
     float: left;
     margin: 0 5px 5px 0;
@@ -106,30 +111,50 @@
 .personItemView .cardText {
     margin-left: 60px;
 }
+ /* Person list styles end */
 
+/* Chat styles */
+#chatContent {
+    height: 400px;
+    overflow: auto;
+}
 
-/* Bottom Ad Region Styles */
-#bottomAdRegion {
-    display: block;
-    position: fixed;
-    bottom: 0;
+.messageItemView {
+    margin: 10px 0;
+    padding: 10px;
+}
+
+.messageItemView:nth-child(even) {
+    background: rgb(244,244,244);
+}
+
+.messageHeader {
+    margin: 0 0 5px 0;
+}
+
+.messageAuthor, .messageTime {
+    color: rgb(170,170,170);
+    display: inline-block;
+}
+
+.messageTime {
+    float: right;
+    font-size: .75em;
+    font-weight: lighter;
+}
+
+#tbChatInput {
+    height: 35px;
     width: 100%;
-    height: 10%;
-    border-top: solid 1px black;
-    background: black;
 }
 
-.bottomAdItemView, .bottomAdImage {
-    display: block;
-    position: relative;
-    width: 100%;
-    height: 100%;
+#btnSend {
+    width:100px;
+    border:solid 1px black;
+    display:inline-block;
+    text-align: center;
 }
-
-.bottomAdImage {
-    background: url(http://placehold.it/1024x90) center center no-repeat;
-    background-size: contain;
-}
+/* Chat sytles end */
 
 
 /*--- Media Queries ---*/
@@ -187,11 +212,4 @@
         min-width: 231px;
         margin: 0 0 5px 0;
     }
-}
-
-
-#testDiv {
-    width:100px;
-    border:solid 1px black;
-    display:block;
 }

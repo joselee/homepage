@@ -1,13 +1,15 @@
 define(
     [
         "backbone.marionette",
-        "hbs!templates/chatViewTemplate"
+        "hbs!templates/chatViewTemplate",
+        "views/chat/messageItemView"
     ],
-    function ChatView(Marionette, ChatViewTemplate){
+    function ChatView(Marionette, ChatViewTemplate, MessageItemView){
         var ChatView = Marionette.ItemView.extend({
             className: "ChatView",
             template: ChatViewTemplate,
             onShow: function(){
+                var self = this;
                 var socket = $.atmosphere;
 
                 var request = {
@@ -25,8 +27,8 @@ define(
                     console.info("connection reconnected");
                 };
                 request.onMessage = function (response) {
-                    var message = response.responseBody;
-                    console.info("got a message: " + message);
+                    var message = $.parseJSON(response.responseBody);
+                    self.appendMessage(message);
                 };
                 request.onError = function(response) {
                     console.info("errored.");
@@ -34,11 +36,18 @@ define(
 
                 var subSocket = socket.subscribe(request);
 
-                $("#testDiv", this.$el).on("click", function(){
-                    console.info("testDiv click");
-                    var data = JSON.stringify({ author: "foo", message: "bar" });
+                $("#btnSend", this.$el).on("click", function(){
+                    var data = JSON.stringify({ author: "Jose Lee", message: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse risus orci, dignissim sed sodales in, rhoncus nec sem. Sed et velit lectus, id dignissim ante." });
                     subSocket.push(data);
                 });
+            },
+            appendMessage: function(message){
+                var content = $("#chatContent", this.$el);
+
+                var messageModel = new Backbone.Model(message);
+                var messageView = new MessageItemView({model: messageModel});
+                content.append(messageView.el);
+                content.scrollTop(content[0].scrollHeight);
             }
         });
 
