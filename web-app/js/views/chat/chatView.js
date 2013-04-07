@@ -17,8 +17,7 @@ define(
                     transport : 'websocket' ,
                     fallbackTransport: 'long-polling'
                 };
-
-
+                
                 request.onOpen = function(response) {
                     console.info("connection is opened");
                 };

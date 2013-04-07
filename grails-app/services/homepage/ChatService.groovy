@@ -10,11 +10,9 @@ class ChatService {
     static atmosphere = [mapping: '/atmosphere/chat']
 
     def onRequest = { event ->
-        println "Inside onRequest!"
         try {
             AtmosphereRequest req = event.request
             if (req.method.equalsIgnoreCase("GET")) {
-                println 'Suspending'
                 event.suspend()
             } else if (req.method.equalsIgnoreCase("POST")) {
                 event.broadcaster.broadcast(req.reader.readLine().trim())
@@ -26,9 +24,6 @@ class ChatService {
     }
 
     def onStateChange = { event ->
-        println "Inside onStateChange!"
-
-        println "Event is $event"
         AtmosphereResource r = event.resource
         AtmosphereResponse res = r.response
 
