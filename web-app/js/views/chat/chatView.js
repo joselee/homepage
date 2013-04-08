@@ -17,7 +17,7 @@ define(
                 this.socket = $.atmosphere;
 
                 this.request = {
-                    url: 'http://localhost:8080/atmosphere/chat',
+                    url: 'http://'+document.location.hostname+':'+document.location.port+'/atmosphere/chat',
                     contentType : "application/json",
                     logLevel : 'debug',
                     transport : 'websocket' ,
