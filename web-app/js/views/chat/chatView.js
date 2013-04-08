@@ -9,45 +9,50 @@ define(
             className: "ChatView",
             template: ChatViewTemplate,
             socket: null,
+            subscription: null,
+            request: null,
+            author: "guest",
             onShow: function(){
                 var self = this;
-                var subscription;
                 this.socket = $.atmosphere;
 
-                var request = {
+                this.request = {
                     url: 'http://localhost:8080/atmosphere/chat',
                     contentType : "application/json",
                     logLevel : 'debug',
                     transport : 'websocket' ,
                     fallbackTransport: 'long-polling'
                 };
-                
-                request.onOpen = function(response) {
+
+                this.request.onOpen = function(response) {
                     console.info("connection is opened");
-                    var data = JSON.stringify({ author: "Someone joined", message: "" });
-                    subscription.push(data);
+                    var data = JSON.stringify({ author: "Someone has joined", message: "" });
+                    self.subscription.push(data);
                 };
-                request.onReconnect = function (request, response) {
+                this.request.onReconnect = function (request, response) {
                     console.info("connection reconnected");
                 };
-                request.onMessage = function (response) {
+                this.request.onMessage = function (response) {
                     var message = $.parseJSON(response.responseBody);
                     self.appendMessage(message);
                 };
-                request.onError = function(response) {
+                this.request.onError = function(response) {
                     console.info("errored.");
                 };
 
-                subscription = this.socket.subscribe(request);
+                this.subscription = this.socket.subscribe(this.request);
 
                 $("#tbChatInput", this.$el).on("keyup", function(e){
                     if(e.keyCode === 13){
-                        var author = "Guest";
                         var message = $(this).val();
-                        var data = JSON.stringify({ author: author, message: message });
-                        subscription.push(data);
+                        var data = JSON.stringify({ author: self.author, message: message });
+                        self.subscription.push(data);
                         $(this).val("");
                     }
+                });
+
+                $("#changeName", this.$el).on("click", function(){
+                    self.author = $("#tbChatInput", self.$el).val();
                 });
             },
             appendMessage: function(message){

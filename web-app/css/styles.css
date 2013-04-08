@@ -154,6 +154,33 @@
     margin: 10px 0 0 0;
     border: solid 1px rgb(170,170,170)
 }
+
+#changeName {
+    color: rgb(100,100,255);
+    font-size: 0.8em;
+    font-weight: lighter;
+    text-decoration: underline;
+    display: inline-block;
+    margin: 5px 0;
+}
+
+#changeName:hover {
+    cursor: pointer;
+}
+
+.tooltip:hover:after {
+    content: attr(title);
+    position: absolute;
+    white-space: nowrap;
+    background: rgba(0, 0, 0, 0.85);
+    padding: 3px 7px;
+    color: #FFF;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    margin-left: 7px;
+    margin-top: -3px;
+}
 /* Chat sytles end */
 
 
