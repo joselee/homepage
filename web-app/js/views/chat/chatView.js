@@ -8,9 +8,11 @@ define(
         var ChatView = Marionette.ItemView.extend({
             className: "ChatView",
             template: ChatViewTemplate,
+            socket: null,
             onShow: function(){
                 var self = this;
-                var socket = $.atmosphere;
+                var subscription;
+                this.socket = $.atmosphere;
 
                 var request = {
                     url: 'http://localhost:8080/atmosphere/chat',
@@ -22,6 +24,8 @@ define(
                 
                 request.onOpen = function(response) {
                     console.info("connection is opened");
+                    var data = JSON.stringify({ author: "Someone joined", message: "" });
+                    subscription.push(data);
                 };
                 request.onReconnect = function (request, response) {
                     console.info("connection reconnected");
@@ -34,14 +38,14 @@ define(
                     console.info("errored.");
                 };
 
-                var subSocket = socket.subscribe(request);
+                subscription = this.socket.subscribe(request);
 
                 $("#tbChatInput", this.$el).on("keyup", function(e){
                     if(e.keyCode === 13){
-                        var author = "Jose Lee";
+                        var author = "Guest";
                         var message = $(this).val();
                         var data = JSON.stringify({ author: author, message: message });
-                        subSocket.push(data);
+                        subscription.push(data);
                         $(this).val("");
                     }
                 });
@@ -53,6 +57,9 @@ define(
                 var messageView = new MessageItemView({model: messageModel});
                 content.append(messageView.el);
                 content.scrollTop(content[0].scrollHeight);
+            },
+            onClose: function(){
+                this.socket.unsubscribe();
             }
         });
 

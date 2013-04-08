@@ -11,11 +11,11 @@ class ChatService {
 
     def onRequest = { event ->
         try {
-            AtmosphereRequest req = event.request
-            if (req.method.equalsIgnoreCase("GET")) {
+            AtmosphereRequest request = event.request
+            if (request.method.equalsIgnoreCase("GET")) {
                 event.suspend()
-            } else if (req.method.equalsIgnoreCase("POST")) {
-                event.broadcaster.broadcast(req.reader.readLine().trim())
+            } else if (request.method.equalsIgnoreCase("POST")) {
+                event.broadcaster.broadcast(request.reader.readLine().trim())
             }
         } catch (Exception e) {
             println "ERROR!!!!!"
@@ -24,24 +24,24 @@ class ChatService {
     }
 
     def onStateChange = { event ->
-        AtmosphereResource r = event.resource
-        AtmosphereResponse res = r.response
+        AtmosphereResource resource = event.resource
+        AtmosphereResponse response = resource.response
 
         try {
             if (event.isSuspended()) {
                 def msg = JSON.parse(event.message)
-                res.writer.write( createMessage(msg.author, msg.message) )
+                response.writer.write( createMessage(msg.author, msg.message) )
 
-                switch (r.transport()) {
+                switch (resource.transport()) {
                     case TRANSPORT.JSONP:
                     case TRANSPORT.LONG_POLLING:
                         event.resource.resume()
                         break
                     default:
-                        res.writer.flush()
+                        response.writer.flush()
                 }
             } else if (!event.isResuming()) {
-                event.broadcaster().broadcast( createMessage('someone', 'buh bye') )
+                event.broadcaster().broadcast( createMessage('Someone has left', '') )
             }
         } catch (Exception e) {
             println "ERROR in onStateChange: $e"
