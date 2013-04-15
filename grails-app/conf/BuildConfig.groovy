@@ -28,7 +28,9 @@ grails.project.dependency.resolution = {
     }
 
     dependencies {
-        compile "org.atmosphere:atmosphere-runtime:1.1.0.beta3"
+        compile ("org.atmosphere:atmosphere-runtime:1.1.0.beta3"){
+		excludes 'slf4j-api', 'atmosphere-ping'
+	}
         runtime 'mysql:mysql-connector-java:5.1.22'
     }
 
@@ -39,6 +41,8 @@ grails.project.dependency.resolution = {
         runtime ":jquery:1.8.3"
         runtime ":resources:1.1.6"
         runtime ":database-migration:1.2.1"
-        runtime ":atmosphere:0.4.2.3"
+        runtime (":atmosphere:0.4.2.3"){
+		exclude 'atmosphere-runtime'
+	}
     }
 }
